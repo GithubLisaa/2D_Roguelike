@@ -24,7 +24,7 @@ public class Characontroller : MonoBehaviour
     {
         if (collision.CompareTag("Disc"))
         {
-            DiscController disc = collision.GetComponent<DiscController>();
+            DiscController disc = collision.GetComponentInParent<DiscController>();
             if (disc)
             {
                 TakeDamage(disc);
