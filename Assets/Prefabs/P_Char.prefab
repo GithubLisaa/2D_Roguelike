@@ -5092,6 +5092,7 @@ GameObject:
   - component: {fileID: 68566746454476964}
   - component: {fileID: 5408203271927331550}
   - component: {fileID: 2353490303158227615}
+  - component: {fileID: 9140533731634304184}
   m_Layer: 8
   m_Name: P_Char
   m_TagString: Untagged
@@ -5156,6 +5157,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &9140533731634304184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268968843890646823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79891b1a8b6488441ba7923e038dda7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isdashing: 0
+  MoveSpeed: 10
+  rb2d: {fileID: 2353490303158227615}
+  dashSpeed: 30
+  dashLength: 0.2
+  dashCooldown: 1
+  Hitbox: {fileID: 4648066785172818343}
 --- !u!1 &8975637947741247092
 GameObject:
   m_ObjectHideFlags: 0
