@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class Characontroller : MonoBehaviour
@@ -9,7 +10,6 @@ public class Characontroller : MonoBehaviour
     [Header("VFX")]
     [SerializeField] private ParticleSystem m_deathVFX;
 
-    private bool m_isaAlive = true;
     public TextMeshProUGUI scoreText;
     public GameObject Score;
     public Camerashake camshake;
@@ -29,16 +29,7 @@ public class Characontroller : MonoBehaviour
         
         camshake.TriggerShake();
 
-        GameObject[] Disc = GameObject.FindGameObjectsWithTag("Disc");
-        foreach (GameObject obj in Disc)
-        {
-            Destroy(obj);
-        }
-
-        Score.GetComponent<Score>().score = 0;
-        scoreText.text = "Score: " + 0;
-
-        m_isaAlive = false;
+        StartCoroutine(Reload(0.5f));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,5 +38,11 @@ public class Characontroller : MonoBehaviour
         {
             TakeDamage();
         }
+    }
+    IEnumerator Reload(float sleep)
+    {
+        yield return new WaitForSeconds(sleep);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
