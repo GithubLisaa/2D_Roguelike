@@ -39,6 +39,7 @@ public class Dash : MonoBehaviour
             if (dashCounter <= 0)
             {
                 isdashing = false;
+                gameObject.GetComponent<TrailRenderer>().emitting = false;
                 activeMoveSpeed = MoveSpeed;
                 dashCoolCounter = dashCooldown;
             }
@@ -49,11 +50,12 @@ public class Dash : MonoBehaviour
             dashCoolCounter -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             if (dashCoolCounter <= 0 && dashCounter <= 0)
             {
                 isdashing = true;
+                gameObject.GetComponent<TrailRenderer>().emitting = true;
                 activeMoveSpeed = dashSpeed;
                 dashCounter = dashLength;
 

@@ -12,7 +12,12 @@ public class Characontroller : MonoBehaviour
     private bool m_isaAlive = true;
     public TextMeshProUGUI scoreText;
     public GameObject Score;
+    public Camerashake camshake;
 
+    private void Start()
+    {
+        camshake = FindObjectOfType<Camerashake>();
+    }
     public void TakeDamage()
     {
         KillChara();
@@ -21,6 +26,8 @@ public class Characontroller : MonoBehaviour
     public void KillChara()
     {
         m_deathVFX.Play();
+        
+        camshake.TriggerShake();
 
         GameObject[] Disc = GameObject.FindGameObjectsWithTag("Disc");
         foreach (GameObject obj in Disc)
